@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy</title>
+    <link rel="stylesheet" href="styles2.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slider-container">
+        <div class="slider-images">
+            <img src="image1.jpg" alt="Pharmacy Image 1">
+            <img src="image2.jpg" alt="Pharmacy Image 2">
+            <img src="images3.jpg" alt="Pharmacy Image 3">
+        </div>
+        <div class="slider-buttons">
+            <span class="prev" onclick="moveSlide(-1)">❮</span>
+            <span class="next" onclick="moveSlide(1)">❯</span>
+        </div>
+    </div>
+
+    <section class="intro">
+        <h1>Your Trusted Partner in Health</h1>
+        <p>We provide high-quality medications, expert advice, and personalized care for you and your family.</p>
+        <button>Our Services</button>
+        <button>Contact Us</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Pharmacy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll(".slider-images img");
+            const totalSlides = slides.length;
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            updateSlidePosition();
+        }
+
+        function updateSlidePosition() {
+            const sliderImages = document.querySelector(".slider-images");
+            const slideWidth = document.querySelector(".slider-images img").clientWidth;
+            sliderImages.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        // Automatically move the slide every 3 seconds
+        setInterval(() => {
+            moveSlide(1);
+        }, 3000);
+    </script>
+</body>
+</html>
