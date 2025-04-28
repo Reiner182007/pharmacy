@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Care Products</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button-container">
+        <a href="products.html" class="back-button">← Back to Products</a>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="cart-container">
+        <a href="cart.html" class="cart-link">🛒 View Cart</a>
+    </div>
+
+    <h2 class="section-title">Skin Care Products</h2>
+    <p class="section-description">Explore our range of skin care products for a healthy and glowing complexion.</p>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input 
+            type="text" 
+            id="searchBar" 
+            placeholder="Search skin care products..." 
+            onkeyup="filterProducts()"
+        >
+    </div>
+    
+    <div class="container">
+        <!-- Product Cards -->
+        <div class="product-card">
+            <img src="skincare1.webp" alt="Moisturizer">
+            <div class="product-title">Hydrating Moisturizer</div>
+            <p class="product-description">Provides deep hydration for dry skin.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare2.webp" alt="Sunscreen">
+            <div class="product-title">SPF 50 Sunscreen</div>
+            <p class="product-description">Offers high protection from UV rays.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare3.webp" alt="Cleanser">
+            <div class="product-title">Gentle Cleanser</div>
+            <p class="product-description">Removes impurities without stripping moisture.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare4.webp" alt="Exfoliator">
+            <div class="product-title">Exfoliating Scrub</div>
+            <p class="product-description">Gently removes dead skin cells for a smoother texture.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare5.jpg" alt="Face Mask">
+            <div class="product-title">Hydrating Face Mask</div>
+            <p class="product-description">Infuses skin with moisture and nutrients.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <!-- Additional Products -->
+        <div class="product-card">
+            <img src="skincare6.jpg" alt="Toner">
+            <div class="product-title">Balancing Toner</div>
+            <p class="product-description">Balances skin's pH and minimizes pores.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare7.jpg" alt="Serum">
+            <div class="product-title">Vitamin C Serum</div>
+            <p class="product-description">Brightens skin and reduces signs of aging.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare8.avif" alt="Eye Cream">
+            <div class="product-title">Anti-Aging Eye Cream</div>
+            <p class="product-description">Reduces puffiness and dark circles.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare9.jpg" alt="Face Oil">
+            <div class="product-title">Nourishing Face Oil</div>
+            <p class="product-description">Locks in moisture and nourishes the skin.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare10.webp" alt="Body Lotion">
+            <div class="product-title">Moisturizing Body Lotion</div>
+            <p class="product-description">Hydrates and softens skin all day long.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare11.webp" alt="Lip Balm">
+            <div class="product-title">Hydrating Lip Balm</div>
+            <p class="product-description">Keeps lips soft and moisturized.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare12.jpg" alt="Face Mist">
+            <div class="product-title">Refreshing Face Mist</div>
+            <p class="product-description">Instant hydration for a dewy finish.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare13.webp" alt="Night Cream">
+            <div class="product-title">Repairing Night Cream</div>
+            <p class="product-description">Restores and rejuvenates skin overnight.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare14.webp" alt="Peeling Gel">
+            <div class="product-title">Peeling Gel</div>
+            <p class="product-description">Gently exfoliates and brightens skin.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="product-card">
+            <img src="skincare15.jpg" alt="Acne Treatment">
+            <div class="product-title">Acne Treatment Gel</div>
+            <p class="product-description">Fights breakouts and reduces inflammation.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for search filter -->
+    <script>
+        function filterProducts() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+
+                if (title.includes(input) || description.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

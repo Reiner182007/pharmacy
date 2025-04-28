@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Pharmacy Website</title>
+  <link rel="stylesheet" href="products-styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="navigation">
+    <div class="back-button">
+      <a href="index.html" class="btn-secondary">Back to Home</a>
+    </div>
+    <div class="cart-button">
+      <a href="cart.html" class="btn cart-link">
+        🛒 View Cart (<span id="cart-count">0</span>)
+      </a>
+    </div>
+  </div>
+
+  <!-- Product Section -->
+  <section class="product-section">
+    <div class="container">
+      <h2>Our Products</h2>
+      <p>Explore our wide range of high-quality medications and health products.</p>
+      <div class="product-grid">
+        <!-- Product Card 1 -->
+        <div class="product-card fade-in">
+          <img src="vitamins.webp" alt="Vitamins">
+          <h3>Vitamins & Supplements</h3>
+          <p>Boost your health with our premium vitamins and supplements.</p>
+          <a href="vitamins and supplements.html" class="btn-secondary">Shop Now</a>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="product-card fade-in">
+          <img src="medications.jpg" alt="Medications">
+          <h3>Prescription Medications</h3>
+          <p>Get your prescriptions filled quickly and conveniently.</p>
+          <a href="prescription and medication.html" class="btn-secondary">Shop Now</a>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="product-card fade-in">
+          <img src="skincare.jpg" alt="Skincare">
+          <h3>Skincare Products</h3>
+          <p>Discover our range of dermatologist-recommended skincare solutions.</p>
+          <a href="skin care.html" class="btn-secondary">Shop Now</a>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="product-card fade-in">
+          <img src="baby-care.jpg" alt="Baby Care">
+          <h3>Baby Care Essentials</h3>
+          <p>Find everything you need for your little one's health and comfort.</p>
+          <a href="Baby essentials.html" class="btn-secondary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Update Cart Count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+
+    updateCartCount();
+
+    // Fade-in Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-visible');
+        }
+      });
+    });
+
+    const faders = document.querySelectorAll('.fade-in');
+    faders.forEach(fader => {
+      observer.observe(fader);
+    });
+  </script>
+
+</body>
+</html>

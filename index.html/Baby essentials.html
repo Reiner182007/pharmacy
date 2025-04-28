@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Care Essentials</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button-container">
+        <a href="products.html" class="back-button">← Back to Products</a>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="cart-container">
+        <a href="cart.html" class="cart-link">🛒 View Cart</a>
+    </div>
+
+    <h2 class="section-title">Baby Care Essentials</h2>
+    <p class="section-description">Provide the best care for your little one with our trusted baby products.</p>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input 
+            type="text" 
+            id="searchBar" 
+            placeholder="Search baby products..." 
+            onkeyup="filterProducts()"
+        >
+    </div>
+    
+    <div class="container">
+        <!-- Product Cards -->
+        <div class="product-card">
+            <img src="baby1.webp" alt="Baby Lotion">
+            <div class="product-title">Gentle Baby Lotion</div>
+            <p class="product-description">Keeps baby's skin soft and moisturized.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby2.jpg" alt="Diapers">
+            <div class="product-title">Super Absorbent Diapers</div>
+            <p class="product-description">Provides all-day comfort and leak protection.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby3.jpg" alt="Wipes">
+            <div class="product-title">Sensitive Baby Wipes</div>
+            <p class="product-description">Gentle wipes for quick and easy clean-ups.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby4.jpg" alt="Shampoo">
+            <div class="product-title">Tear-Free Baby Shampoo</div>
+            <p class="product-description">Cleanses gently without irritation.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby5.jpg" alt="Baby Oil">
+            <div class="product-title">Nourishing Baby Oil</div>
+            <p class="product-description">Moisturizes and protects delicate skin.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby6.jfif" alt="Baby Powder">
+            <div class="product-title">Soothing Baby Powder</div>
+            <p class="product-description">Helps prevent diaper rash and friction.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby7.avif" alt="Teething Gel">
+            <div class="product-title">Natural Teething Gel</div>
+            <p class="product-description">Provides relief from teething discomfort.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby8.jpg" alt="Bottles">
+            <div class="product-title">BPA-Free Baby Bottles</div>
+            <p class="product-description">Safe and easy for feeding your baby.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby9.jpg" alt="Pacifiers">
+            <div class="product-title">Orthodontic Pacifiers</div>
+            <p class="product-description">Supports healthy oral development.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby10.png" alt="Formula">
+            <div class="product-title">Infant Formula</div>
+            <p class="product-description">Nutrition tailored for your baby's growth.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby11.webp" alt="Blanket">
+            <div class="product-title">Soft Baby Blanket</div>
+            <p class="product-description">Keeps your baby warm and cozy.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby12.jpg" alt="High Chair">
+            <div class="product-title">Adjustable High Chair</div>
+            <p class="product-description">Safe and comfortable for mealtime.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby13.jpg" alt="Baby Monitor">
+            <div class="product-title">Video Baby Monitor</div>
+            <p class="product-description">Stay connected with your baby from anywhere.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby14.jpg" alt="Swaddle">
+            <div class="product-title">Cozy Swaddle Blanket</div>
+            <p class="product-description">Provides comfort and security for your little one.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="baby15.webp" alt="Bath Set">
+            <div class="product-title">Baby Bath Set</div>
+            <p class="product-description">Includes everything you need for bath time fun.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for live search -->
+    <script>
+        function filterProducts() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+
+                if (title.includes(input) || description.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+ 

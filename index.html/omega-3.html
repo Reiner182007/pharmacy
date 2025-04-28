@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omega-3 Fish Oil - Product Page</title>
+  <link rel="stylesheet" href="product-style.css" />
+</head>
+<body>
+
+  <div class="product-container">
+    <img src="vitamin2.webp" alt="Omega-3 Fish Oil" class="product-image" />
+    <div class="product-title">Omega-3 Fish Oil</div>
+    <div class="product-description">
+      Promotes heart and brain health. High concentration, purified and tested for quality.
+    </div>
+    <div class="price">$14.99</div>
+
+    <button class="btn add-to-cart" onclick="addToCart('Omega-3 Fish Oil', 14.99)">Add to Cart</button>
+    <a href="payment.html" class="btn buy-now">Buy Now</a>
+  </div>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingProduct = cart.find(item => item.name === name);
+
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
+
+</body>
+</html>
