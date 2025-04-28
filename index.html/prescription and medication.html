@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Medications</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button-container">
+        <a href="products.html" class="back-button">← Back to Products</a>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="cart-container">
+        <a href="cart.html" class="cart-link">🛒 View Cart</a>
+    </div>
+
+    <h2 class="section-title">Prescription Medications</h2>
+    <p class="section-description">Get your prescriptions filled quickly and conveniently.</p>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input 
+            type="text" 
+            id="searchBar" 
+            placeholder="Search medications..." 
+            onkeyup="filterMedications()"
+        >
+    </div>
+    
+    <div class="container">
+        <!-- Product Cards -->
+        <div class="product-card">
+            <img src="med1.jpg" alt="Medication 1">
+            <div class="product-title">Pain Reliever</div>
+            <p class="product-description">Effective relief for headaches and body pain.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med2.jpg" alt="Medication 2">
+            <div class="product-title">Antibiotics</div>
+            <p class="product-description">Treat bacterial infections effectively.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="Equate-Allergy-Relief-Cetirizine-Hydrochloride-Tablets-10-mg-14-Count_8f6c1020-60c9-4748-b521-627d1a3f7c8b.ebe8a776dd3bed9af918db01e9c21499.avif" alt="Medication 3">
+            <div class="product-title">Allergy Relief</div>
+            <p class="product-description">Fast relief for allergies and hay fever.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med4.jpg" alt="Medication 4">
+            <div class="product-title">Cough Syrup</div>
+            <p class="product-description">Soothes cough and throat irritation.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med5.avif" alt="Medication 5">
+            <div class="product-title">Blood Pressure Medication</div>
+            <p class="product-description">Supports heart health and blood pressure control.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <!-- Add 10 more products -->
+        <div class="product-card">
+            <img src="med6.jpg" alt="Medication 6">
+            <div class="product-title">Diabetes Medication</div>
+            <p class="product-description">Helps manage blood sugar levels.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med7.jpg" alt="Medication 7">
+            <div class="product-title">Sleep Aid</div>
+            <p class="product-description">Promotes restful sleep.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med8.webp" alt="Medication 8">
+            <div class="product-title">Cold & Flu Relief</div>
+            <p class="product-description">Eases symptoms of colds and flu.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med9.jpg" alt="Medication 9">
+            <div class="product-title">Digestive Aid</div>
+            <p class="product-description">Supports healthy digestion and gut health.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med10.avif" alt="Medication 10">
+            <div class="product-title">Joint Pain Relief</div>
+            <p class="product-description">Helps reduce inflammation and pain.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med11.webp" alt="Medication 11">
+            <div class="product-title">Asthma Inhaler</div>
+            <p class="product-description">Helps manage asthma symptoms.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med12.jpg" alt="Medication 12">
+            <div class="product-title">Iron Supplements</div>
+            <p class="product-description">Boosts energy and fights anemia.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med13.jpeg" alt="Medication 13">
+            <div class="product-title">Antacid</div>
+            <p class="product-description">Relieves heartburn and acid reflux.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med14.webp" alt="Medication 14">
+            <div class="product-title">Cholesterol Medication</div>
+            <p class="product-description">Helps maintain healthy cholesterol levels.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="product-card">
+            <img src="med15.png" alt="Medication 15">
+            <div class="product-title">Skin Allergy Cream</div>
+            <p class="product-description">Relieves itching and skin allergies.</p>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Search Filtering Script -->
+    <script>
+        function filterMedications() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+
+                if (title.includes(input) || description.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

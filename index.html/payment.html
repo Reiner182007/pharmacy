@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Method</title>
+  <link rel="stylesheet" href="payment-styles.css" />
+  <script>
+    function togglePaymentFields() {
+      const method = document.querySelector('input[name="payment-method"]:checked').value;
+      const belizeFields = document.getElementById('belize-card-info');
+      const internationalFields = document.getElementById('international-info');
+
+      if (method === 'belize') {
+        belizeFields.style.display = 'block';
+        internationalFields.style.display = 'none';
+      } else if (method === 'international') {
+        belizeFields.style.display = 'none';
+        internationalFields.style.display = 'block';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="payment-container">
+    <h2>Checkout & Payment</h2>
+
+    <form action="confirmation.html" method="post">
+      <h3>Personal Information</h3>
+      <input type="text" name="fullname" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <textarea name="address" rows="3" placeholder="Shipping Address" required></textarea>
+
+      <h3>Select Payment Method</h3>
+      <label>
+        <input type="radio" name="payment-method" value="belize" onclick="togglePaymentFields()" required />
+        Belizean Bank (Card)
+      </label>
+      <label>
+        <input type="radio" name="payment-method" value="international" onclick="togglePaymentFields()" />
+        International (e.g., PayPal)
+      </label>
+
+      <!-- Belizean Bank Card Info -->
+      <div id="belize-card-info" style="display: none;">
+        <h4>Belizean Bank Card Info</h4>
+        <input type="text" name="card-name" placeholder="Name on Card" />
+        <input type="text" name="card-number" placeholder="Card Number" />
+        <div class="flex-inputs">
+          <input type="text" name="expiry" placeholder="MM/YY" />
+          <input type="text" name="cvv" placeholder="CVV" />
+        </div>
+      </div>
+
+      <!-- International Payment Info -->
+      <div id="international-info" style="display: none;">
+        <h4>International Payment Info</h4>
+        <input type="text" name="paypal-email" placeholder="PayPal or Payment Email" />
+        <input type="text" name="transaction-id" placeholder="Transaction ID (if available)" />
+      </div>
+
+      <button type="submit">Submit Payment</button>
+    </form>
+  </div>
+</body>
+</html>
